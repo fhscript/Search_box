@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    /* Background: Clean White */
+    background-color: #FFFFFF;
+    /* Default page text: Dark Grey for readability on white */
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.logo {
+    /* Use a modern display font for the logo */
+    font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    /* Logo: Primary Blue */
+    color: #004ff9;
+    margin-bottom: 50px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+.search-container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 50px;
+    box-shadow: 0 0 15px rgba(9, 99, 196, 0.788);
+    border-radius: 30px;
+}
+
+.search-container input[type="text"] {
+    flex: 1;
+    padding: 15px 25px;
+    /* make room for the left search icon */
+    padding-left: 48px;
+    border: none;
+    border-radius: 30px ;
+    font-size: 18px;
+    outline: none;
+    /* Search Bar: Light Grey */
+    background-color: #F2F2F2;
+    /* Search Bar Text: Dark Grey */
+    color: #333333;
+    transition: all 0.3s ease;
+}
+
+.search-container input[type="text"]::placeholder {
+    color: #777777;
+}
+
+.search-container input[type="text"]:focus {
+    box-shadow: 0 0 20px #e6f0ff;
+}
+
+button {
+    padding: 15px 30px;
+    margin: 10px 20;
+    border: none;
+    /* Button: Action Orange */
+    background-color: #FD8112;
+    /* Button Text: White */
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 0 15px rgba(253,129,18,0.28);
+    border-radius: 30px;
+}
+button:hover, button:focus{
+    background-color: #e66f0f;
+    color: #FFFFFF;
+}
+
+.search-container button:hover {
+    box-shadow: 0 0 25px rgba(230,111,15,0.22);
+    transform: translateY(-2px);
+}
+
+/* Search icon inside the search box */
+.search-container .search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 20px;
+    /* decorative inline SVG (primary blue) */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23004ff9' d='M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zM9.5 14C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/></svg>");
+    pointer-events: none; /* decorative only */
+}
+
+/* On small screens reduce left padding so layout stays nice */
+@media (max-width: 600px) {
+    .search-container .search-icon {
+        left: 12px;
+        width: 18px;
+        height: 18px;
+        background-size: 18px 18px;
+    }
+    .search-container input[type="text"] {
+        padding-left: 44px;
+    }
+}
+
+.suggestions {
+    position: absolute;
+    top: 75px;
+    /* below search bar */
+    max-width: 600px;
+    width: 100%;
+    background-color: #1a1a1a;
+    border: 1px solid #0917ad;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(6, 6, 125, 0.3);
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.suggestion-item {
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #ccc;
+}
+
+.suggestion-item:hover {
+    background-color: #39ff14;
+    color: #0d0d0d;
+}
+.results-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.result-item {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-left: 4px solid #39ff14;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.2);
+    transition: all 0.2s ease;
+}
+
+.result-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(57, 255, 20, 0.5);
+}
+
+.result-item h3 {
+    font-size: 1.3rem;
+    color: #39ff14;
+    margin-bottom: 8px;
+}
+
+.result-item p {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+@media (max-width: 600px) {
+    .search-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .search-container input[type="text"],
+    .search-container button {
+        width: 100%;
+        border-radius: 30px;
+        margin: 5px 0;
+    }
+}
+
+
+
+.bubbles {
+    position: fixed;
+    top: 0;
+      left: 0;
+    width: 100%;
+    height: 100%;
+     overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+}
+.bubbles::before,
+.bubbles::after {
+    content: '';
+    position: absolute;
+       border-radius: 50%;
+    bottom: -40px;
+      left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.9;
+}
+.bubbles::before {
+    /* larger base bubble */
+    width: 40px;
+      height: 40px;
+    background: rgba(0, 150, 255, 0.8);
+    animation: rise 18s infinite linear;
+    /* many shadows to simulate lots of bubbles spread across viewport; some entries use spread to appear larger */
+    box-shadow:
+        0 0 0 0 rgba(0,150,255,0.8),
+            60px -80px 0 6px rgba(0,150,255,0.6),
+        -120px -140px 0 10px rgba(0,150,255,0.55),
+          180px -220px 0 8px rgba(0,150,255,0.45),
+        -260px -300px 0 12px rgba(0,150,255,0.35),
+        320px -380px 0 5px rgba(0,150,255,0.28),
+        -420px -460px 0 14px rgba(0,150,255,0.22),
+          -540px 0 4px rgba(0,150,255,0.18),
+            -640px -620px 0 16px rgba(0,150,255,0.14),
+        760px -700px 0 6px rgba(0,150,255,0.12),
+        -880px -820px 0 18px rgba(0,150,255,0.10),
+         1000px -940px 0 3px rgba(0,150,255,0.08),
+        -1120px -1060px 0 20px rgba(0,150,255,0.06),
+        1240px -1180px 0 2px rgba(0,150,255,0.05),
+           -1400px -1300px 0 22px rgba(0,150,255,0.045),
+        1560px -1420px 0 8px rgba(0,150,255,0.04),
+        -1720px -1540px 0 12px rgba(0,150,255,0.035);
+}
+.bubbles::after {
+    /* mid-size variation */
+    width: 28px;
+    height: 28px;
+     background: rgba(120, 200, 255, 0.65);
+    animation: rise 12s infinite ease-in-out reverse;
+    bottom: -30px;
+      left: 35%;
+    transform: translateX(-35%);
+    box-shadow:
+        20px -60px 0 4px rgba(120,200,255,0.6),
+           -80px -120px 0 6px rgba(120,200,255,0.5),
+        140px -180px 0 8px rgba(120,200,255,0.45),
+            -200px -260px 0 10px rgba(120,200,255,0.35),
+        260px -320px 0 5px rgba(120,200,255,0.28),
+        -320px -400px 0 12px rgba(120,200,255,0.22),
+        380px -480px 0 6px rgba(120,200,255,0.18),
+          -440px -560px 0 14px rgba(120,200,255,0.14),
+        500px -640px 0 7px rgba(120,200,255,0.12),
+        -580px -720px 0 9px rgba(120,200,255,0.10),
+           660px -800px 0 11px rgba(120,200,255,0.08);
+}
+@keyframes rise {
+    0% {
+        transform: translateX(-50%) translateY(0) scale(1);
+         opacity: 1;
+    }
+    70%  {
+        opacity: 0.85;
+    }
+    100% {
+          transform: translateX(-50%) translateY(-120vh) scale(0.6);
+        opacity: 0;
+    }
+}
+
+/* Additional styles can be added here */
