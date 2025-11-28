@@ -2,7 +2,7 @@
 let headStyle = document.querySelector("head");
 if(!headStyle)headStyle=document.body;
 const atlasStyle=document.createElement("link");
-atlasStyle.href="/search.css";
+atlasStyle.href="https://cdn.jsdelivr.net/gh/fhscript/Search_box@master/assets/styles/atlas.css";
 atlasStyle.rel = "stylesheet";
 headStyle.appendChild(atlasStyle);
 const atlas = {
@@ -41,7 +41,7 @@ atlasSearchBox.forEach(st  =>{
   at.id="atlasSearchBox";
   at.innerHTML =`
   <form>
-      <img src="/assets/images/20250918_223801.png" loading="lazy" alt="atlas-search-icon">
+      <img src="https://cdn.jsdelivr.net/gh/fhscript/Search_box@master/assets/images/20250918_223801.png" loading="lazy" alt="atlas-search-icon">
     <input type="search" id="" ignore="id,class,hidden,data*,area*">
     <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" 
      width="19" height="19" 
