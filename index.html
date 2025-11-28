@@ -4,33 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ATLAS</title>
+    <title>DEVZONE</title>
     <link rel="stylesheet" href="devzone.css">
 </head>
 
 <body>
     <button id="toggle">🌙</button>
-    <div class="logo"><img src="IMG-20251127-WA0098-removebg-preview.png" width="100px">Atlas<p>Where the unknown becomes known</p></div>
 
-    
+    <div class="logo">
+        <img src="IMG-20251127-WA0098-removebg-preview.png" width="100px">
+        Atlas
+        <p>Where the unknown becomes known</p>
+    </div>
+
     <div class="row">
         <div class="search-container">
-            <!-- decorative search icon inside the input (purely visual) -->
             <span class="search-icon" aria-hidden="true"></span>
             <input type="text" id="searchInput" placeholder="Search the unknown..." autocomplete="off">
-            <button>Go</button>
-        </div> 
+            <button id="searchBtn">Go</button>
+        </div>
     </div>
-    <!-- Suggestions dropdown -->
+
     <div id="suggestions" class="suggestions"></div>
+    <div id="history" class="history"></div>
+    <div class="results-container" id="resultsContainer"></div>
 
-    <div class="results-container" id="resultsContainer">
-        <!-- API results will appear here -->
-    </div>
-
- <!-- Bubble background (put this near the top of <body>) -->
     <div class="bubbles"></div>
-    
+
     <script src="devzone.js"></script>
 </body>
 
