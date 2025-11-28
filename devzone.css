@@ -11,9 +11,7 @@
 }
 
 body {
-    /* Background: Clean White */
     background-color: #FFFFFF;
-    /* Default page text: Dark Grey for readability on white */
     color: #333333;
     display: flex;
     flex-direction: column;
@@ -22,17 +20,39 @@ body {
     padding: 40px 20px;
 }
 
+.row{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+.row input{
+    flex: 1;
+    padding: 10px;
+    border: 1px solid whitesmoke;
+    border-radius: 6px;
+}
+.row button{
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
 .logo {
-    /* Use a modern display font for the logo */
     font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
     font-size: 3rem;
     font-weight: 800;
-    /* Logo: Primary Blue */
     color: #004ff9;
     margin-bottom: 50px;
     text-align: center;
     letter-spacing: 1px;
 }
+
+.logo img{
+    vertical-align: middle;
+}
+
 .search-container {
     display: flex;
     position: relative;
@@ -47,21 +67,23 @@ body {
 .search-container input[type="text"] {
     flex: 1;
     padding: 15px 25px;
-    /* make room for the left search icon */
     padding-left: 48px;
     border: none;
     border-radius: 30px ;
     font-size: 18px;
+    max-width: 400px;
     outline: none;
-    /* Search Bar: Light Grey */
     background-color: #F2F2F2;
-    /* Search Bar Text: Dark Grey */
-    color: #333333;
+    color: rgb(8, 32, 139);
     transition: all 0.3s ease;
+    font-weight: 600;
 }
-
+.search-container input:hover{
+    background-color: #bdc9d3;
+    transform: translate(-5px);
+}
 .search-container input[type="text"]::placeholder {
-    color: #777777;
+    color: #545252;
 }
 
 .search-container input[type="text"]:focus {
@@ -72,9 +94,7 @@ button {
     padding: 15px 30px;
     margin: 10px 20;
     border: none;
-    /* Button: Action Orange */
-    background-color: #FD8112;
-    /* Button Text: White */
+    background-color: #051264;
     color: #FFFFFF;
     font-size: 18px;
     font-weight: 700;
@@ -82,13 +102,13 @@ button {
     transition: all 0.3s ease;
     display: flex;
     justify-content: center;
-    width: 100%;
-    max-width: 600px;
+    width: 50%;
+    max-width: 70px;
     box-shadow: 0 0 15px rgba(253,129,18,0.28);
     border-radius: 30px;
 }
 button:hover, button:focus{
-    background-color: #e66f0f;
+    background-color: #066cd2;
     color: #FFFFFF;
 }
 
@@ -97,7 +117,6 @@ button:hover, button:focus{
     transform: translateY(-2px);
 }
 
-/* Search icon inside the search box */
 .search-container .search-icon {
     position: absolute;
     left: 14px;
@@ -129,7 +148,6 @@ button:hover, button:focus{
 .suggestions {
     position: absolute;
     top: 75px;
-    /* below search bar */
     max-width: 600px;
     width: 100%;
     background-color: #1a1a1a;
