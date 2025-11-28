@@ -7,18 +7,20 @@
     <title>DEVZONE</title>
     <link rel="stylesheet" href="devzone.css">
 </head>
-  
-<body>
-    <div class="logo">DevZone</div>
 
-    <div class="search-container">
-        <!-- decorative search icon inside the input (purely visual) -->
-        <span class="search-icon" aria-hidden="true"></span>
-        <input type="text" id="searchInput" placeholder="Search the unknown..." autocomplete="off">
-        <!-- Suggestions dropdown -->
-        <div id="suggestions" class="suggestions"></div>
+<body>
+    <div class="logo"><img src="IMG-20251127-WA0098-removebg-preview.png" width="100px">Atlas</div>
+
+    <div class="row">
+        <div class="search-container">
+            <!-- decorative search icon inside the input (purely visual) -->
+            <span class="search-icon" aria-hidden="true"></span>
+            <input type="text" id="searchInput" placeholder="Search the unknown..." autocomplete="off">
+            <button>Go</button>
+        </div> 
     </div>
-    <button id="searchButton">Go</button>
+    <!-- Suggestions dropdown -->
+    <div id="suggestions" class="suggestions"></div>
 
     <div class="results-container" id="resultsContainer">
         <!-- API results will appear here -->
@@ -29,6 +31,5 @@
     
     <script src="script.js"></script>
 </body>
-
 
 </html>
