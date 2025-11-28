@@ -1,44 +1,281 @@
+
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <base href="">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Collection - Search Demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      color: white;
+      margin-bottom: 30px;
+      padding: 20px;
+    }
+
+    .header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .header p {
+      font-size: 1.2em;
+      opacity: 0.9;
+    }
+
+    #container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .recipe-card {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .recipe-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+    }
+
+    .recipe-card h3 {
+      color: #667eea;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 8px;
+    }
+
+    .recipe-meta {
+      display: flex;
+      gap: 15px;
+      margin: 15px 0;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    .recipe-meta span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .recipe-card p {
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .recipe-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .tag {
+      background: #f0f0f0;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85em;
+      color: #555;
+    }
+
+    /* Style for Atlas search box when it loads */
+
+    .loading {
+      text-align: center;
+      color: white;
+      font-size: 1.2em;
+      padding: 40px;
+    }
+  </style>
 </head>
-
 <body>
-
-  <div id="atlas-set">
-    
+  <div class="header">
+    <h1>🍳 Recipe Collection</h1>
+    <p>Search through our delicious recipes</p>
   </div>
+
+  <div id="atlas-set"></div>
   
   <section id="container" class="example-container">
-    
-    
-    <div data-keyword="text">
-      background in your 
+    <div class="recipe-card" data-keyword="pasta, italian, tomato, cheese, dinner">
+      <h3>Classic Spaghetti Carbonara</h3>
+      <div class="recipe-meta">
+        <span>⏱️ 20 mins</span>
+        <span>👨‍🍳 Easy</span>
+      </div>
+      <p>A traditional Italian pasta dish made with eggs, cheese, pancetta, and black pepper. Creamy without using cream!</p>
+      <div class="recipe-tags">
+        <span class="tag">Italian</span>
+        <span class="tag">Pasta</span>
+        <span class="tag">Quick</span>
+      </div>
     </div>
-    <div data-keyword="your, keywords,...">
-      color and color of my 
+
+    <div class="recipe-card" data-keyword="chicken, asian, stir-fry, vegetables, healthy">
+      <h3>Teriyaki Chicken Bowl</h3>
+      <div class="recipe-meta">
+        <span>⏱️ 30 mins</span>
+        <span>👨‍🍳 Medium</span>
+      </div>
+      <p>Glazed chicken thighs with homemade teriyaki sauce, served over rice with fresh vegetables. A healthy and flavorful dinner option.</p>
+      <div class="recipe-tags">
+        <span class="tag">Asian</span>
+        <span class="tag">Chicken</span>
+        <span class="tag">Healthy</span>
+      </div>
     </div>
-    <!---.....--->
+
+    <div class="recipe-card" data-keyword="chocolate, dessert, baking, sweet, cake">
+      <h3>Double Chocolate Brownies</h3>
+      <div class="recipe-meta">
+        <span>⏱️ 45 mins</span>
+        <span>👨‍🍳 Easy</span>
+      </div>
+      <p>Rich, fudgy brownies loaded with chocolate chips. Perfect for chocolate lovers and special occasions.</p>
+      <div class="recipe-tags">
+        <span class="tag">Dessert</span>
+        <span class="tag">Chocolate</span>
+        <span class="tag">Baking</span>
+      </div>
+    </div>
+
+    <div class="recipe-card" data-keyword="salad, healthy, vegetables, vegan, lunch">
+      <h3>Mediterranean Quinoa Salad</h3>
+      <div class="recipe-meta">
+        <span>⏱️ 15 mins</span>
+        <span>👨‍🍳 Easy</span>
+      </div>
+      <p>A fresh and healthy salad with quinoa, cucumbers, tomatoes, olives, and feta cheese. Perfect for meal prep.</p>
+      <div class="recipe-tags">
+        <span class="tag">Healthy</span>
+        <span class="tag">Salad</span>
+        <span class="tag">Vegetarian</span>
+      </div>
+    </div>
+
+    <div class="recipe-card" data-keyword="burger, beef, american, grill, cheese">
+      <h3>Gourmet Beef Burger</h3>
+      <div class="recipe-meta">
+        <span>⏱️ 25 mins</span>
+        <span>👨‍🍳 Medium</span>
+      </div>
+      <p>Juicy beef patty with caramelized onions, aged cheddar, and special sauce on a brioche bun. The ultimate burger experience.</p>
+      <div class="recipe-tags">
+        <span class="tag">American</span>
+        <span class="tag">Beef</span>
+        <span class="tag">Grill</span>
+      </div>
+    </div>
+
+    <div class="recipe-card" data-keyword="soup, comfort, vegetables, healthy, dinner">
+      <h3>Creamy Tomato Basil Soup</h3>
+      <div class="recipe-meta">
+        <span>⏱️ 35 mins</span>
+        <span>👨‍🍳 Easy</span>
+      </div>
+      <p>A comforting classic made with ripe tomatoes, fresh basil, and a touch of cream. Pairs perfectly with grilled cheese.</p>
+      <div class="recipe-tags">
+        <span class="tag">Soup</span>
+        <span class="tag">Comfort Food</span>
+        <span class="tag">Vegetarian</span>
+      </div>
+    </div>
+
+    <div class="recipe-card" data-keyword="tacos, mexican, fish, spicy, dinner">
+      <h3>Baja Fish Tacos</h3>
+      <div class="recipe-meta">
+        <span>⏱️ 30 mins</span>
+        <span>👨‍🍳 Medium</span>
+      </div>
+      <p>Crispy battered fish with tangy slaw, avocado, and chipotle sauce in warm tortillas. A taste of the coast!</p>
+      <div class="recipe-tags">
+        <span class="tag">Mexican</span>
+        <span class="tag">Fish</span>
+        <span class="tag">Spicy</span>
+      </div>
+    </div>
+
+    <div class="recipe-card" data-keyword="breakfast, pancakes, sweet, easy, brunch">
+      <h3>Fluffy Buttermilk Pancakes</h3>
+      <div class="recipe-meta">
+        <span>⏱️ 20 mins</span>
+        <span>👨‍🍳 Easy</span>
+      </div>
+      <p>Light and fluffy pancakes that melt in your mouth. Serve with maple syrup and fresh berries for the perfect breakfast.</p>
+      <div class="recipe-tags">
+        <span class="tag">Breakfast </span>
+        <span class="tag">Pancakes</span>
+        <span class="tag">Sweet</span>
+      </div>
+    </div>
+
+    <div class="recipe-card" data-keyword="curry, indian, spicy, rice, chicken">
+      <h3>Butter Chicken Curry</h3>
+      <div class="recipe-meta">
+        <span>⏱️ 40 mins</span>
+        <span>👨‍🍳 Medium</span>
+      </div>
+      <p>Tender chicken in a rich, creamy tomato sauce with aromatic spices. A beloved Indian classic that's surprisingly easy to make at home.</p>
+      <div class="recipe-tags">
+        <span class="tag">Indian</span>
+        <span class="tag">Curry</span>
+        <span class="tag">Chicken</span>
+      </div>
+    </div>
   </section>
-  
-  
-  
 
-    <script src="/search.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fhscript/Search_box@refs/heads/master/atlas.js"></script>
   <script>
-    queryAtlas(document.querySelector("#container"));
+    function initAtlasSearch() {
+      // Wait a bit for the library to fully load
+      setTimeout(() => {
+        if (typeof queryAtlas !== 'undefined') {
+          const container = document.querySelector("#container");
+          if (container) {
+            queryAtlas(container);
+            console.log("Atlas search initialized successfully!");
+          } else {
+            console.error("Container element not found");
+          }
+        } else {
+          console.error("Atlas library (queryAtlas) not loaded");
+          // Show fallback message
+          document.querySelector("#atlas-set").innerHTML = 
+            '<div class="loading">Search functionality could not be loaded. Please refresh the page.</div>';
+        }
+      }, 100);
+    }
 
+    // Initialize when page loads
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAtlasSearch);
+    } else {
+      initAtlasSearch();
+    }
   </script>
-  
-  
 </body>
-
 </html>
-
