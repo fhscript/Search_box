@@ -1,8 +1,9 @@
+
 :root {
   --search-input-container-primary: rgba(0,100,200);
 }
 #atlas-set{
-  background: #ffffff;
+  background: transparent;
 width: 90%;
 max-width: 29em;
 border-radius: 10px;
@@ -10,9 +11,16 @@ position: relative;
 overflow: visible;
 z-index: 100000;
 height: 60px;
+box-sizing: border-box;
+}
+#atlas-set *{
+  box-sizing: border-box;
+  
 }
 .search-input-container{
   width: 100%;
+  background: #ffffff;
+  border-radius: 10px;
 } 
 .search-input-container form{
   width: 100%;
